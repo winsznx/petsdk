@@ -1,0 +1,40 @@
+{
+  "name": "@winsznx/petsdk",
+  "version": "0.1.0",
+  "description": "The official TypeScript SDK for StxPet",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "dev": "tsup src/index.ts --format cjs,esm --watch --dts",
+    "lint": "eslint src/**/*.ts",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "stacks",
+    "bitcoin",
+    "stxpet",
+    "sdk",
+    "blockchain"
+  ],
+  "author": "winsznx",
+  "license": "MIT",
+  "dependencies": {
+    "@stacks/transactions": "^6.14.0",
+    "@stacks/network": "^6.14.0",
+    "@stacks/common": "^6.14.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5",
+    "tsup": "^8.0.2",
+    "vitest": "^1.6.0",
+    "eslint": "^8.57.0",
+    "@typescript-eslint/eslint-plugin": "^7.8.0",
+    "@typescript-eslint/parser": "^7.8.0"
+  }
+}
