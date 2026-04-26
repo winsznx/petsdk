@@ -8,16 +8,16 @@ import {
   SignedContractCallOptions,
   AnchorMode
 } from '@stacks/transactions';
-import { STACKS_MAINNET, STACKS_TESTNET } from '@stacks/network';
+import { StacksMainnet, StacksTestnet } from '@stacks/network';
 import { StxPetConfig, LivePetState, RawPetState, PetAction } from './types';
 
 export class StxPetClient {
   private readonly config: StxPetConfig;
-  private readonly network: typeof STACKS_MAINNET;
+  private readonly network: StacksMainnet | StacksTestnet;
 
   constructor(config: StxPetConfig) {
     this.config = config;
-    this.network = config.network === 'mainnet' ? STACKS_MAINNET : STACKS_TESTNET;
+    this.network = config.network === 'mainnet' ? new StacksMainnet() : new StacksTestnet();
   }
 
   /**
