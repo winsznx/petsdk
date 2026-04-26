@@ -1,5 +1,5 @@
 import { 
-  fetchCallReadOnlyFunction, 
+  callReadOnlyFunction, 
   cvToValue, 
   Cl, 
   ClarityValue,
@@ -24,7 +24,7 @@ export class StxPetClient {
    * Fetches the current live state of the pet, including decay calculations.
    */
   async getLiveState(): Promise<LivePetState> {
-    const result = await fetchCallReadOnlyFunction({
+    const result = await callReadOnlyFunction({
       contractAddress: this.config.contractAddress,
       contractName: this.config.contractName,
       functionName: 'get-live-state',
